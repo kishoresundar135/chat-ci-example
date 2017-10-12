@@ -4,7 +4,7 @@
     only:
       - master
 
-  version: appveyor-build #{build}
+  version: appveyor-build-{build}
   image: Visual Studio 2017
 
 # Test against the latest version of this Node.js version
@@ -48,7 +48,7 @@
   only_commits:
     message: /build/
 
-  version: AppVeyor-{build}
+  version: appVeyor-build-{build}
   image: Visual Studio 2017
 
   # Test against the latest version of this Node.js version
