@@ -1,10 +1,10 @@
-# First config
+# First config for all master branch commits and PRs
 -
   branches:
     only:
       - master
 
-  version: AppVeyor-{build}
+  version: appveyor-build #{build}
   image: Visual Studio 2017
 
 # Test against the latest version of this Node.js version
@@ -38,13 +38,12 @@
   build: off
 
   artifacts:
-  - path: bin
+  - path: bin\*
+    name: chat-ci-example
   - path: Wix\*.msi
+    name: chat-ci-example-msi
 
-  notifications:
-    - provider: Slack
-      incoming_webhook: https://hooks.slack.com/services/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
-#Second Config
+# Second Config for only commits with `build`
 -
   only_commits:
     message: /build/
@@ -85,7 +84,3 @@
   artifacts:
     - path: bin
     - path: Wix\*.msi
-
-  notifications:
-    - provider: Slack
-      incoming_webhook: https://hooks.slack.com/services/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
