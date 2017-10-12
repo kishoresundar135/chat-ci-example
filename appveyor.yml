@@ -41,9 +41,17 @@
   - path: bin
   - path: Wix\*.msi
 
-  notifications:
-    - provider: Slack
-      incoming_webhook: https://hooks.slack.com/services/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
+  deploy:
+  - provider: GitHub
+    artifact: bin
+      path: bin
+      path: Wix\*.msi
+    draft: true
+    prerelease: false
+    on:
+      branch: master
+      appveyor_repo_tag: true
+
 #Second Config
 -
   only_commits:
@@ -85,7 +93,3 @@
   artifacts:
     - path: bin
     - path: Wix\*.msi
-
-  notifications:
-    - provider: Slack
-      incoming_webhook: https://hooks.slack.com/services/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
