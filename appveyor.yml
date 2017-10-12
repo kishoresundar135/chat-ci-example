@@ -38,19 +38,20 @@
   build: off
 
   artifacts:
-  - path: bin
+  - path: bin\*
+    name: chat-ci-example
   - path: Wix\*.msi
+    name: chat-ci-example-msi
 
   deploy:
   - provider: GitHub
-    artifact: bin
-      path: bin
-      path: Wix\*.msi
+    artifact: bin\*, Wix\*.msi
     draft: true
     prerelease: false
     on:
       branch: master
       appveyor_repo_tag: true
+    force_update: true
 
 #Second Config
 -
